@@ -1,0 +1,67 @@
+{
+  "welcome": "Welcome!",
+  "menu": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "projects": "Projects",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Arthur Teles",
+    "subtitle": "Full Stack Developer",
+    "button": "View Projects →"
+  },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Learn more about my career and professional services",
+    "who": {
+      "title": "Who am I?",
+      "p1": "I'm <strong>Arthur Teles</strong>, graduated in Information Technology and post-graduated in Java/PHP, a Full Stack Developer passionate about creating scalable applications and solving real problems with technology.",
+      "p2": "I specialize in <strong>Python (Django/FastAPI)</strong>, <strong>React</strong> and modern web architectures, transforming complex challenges into clean, well-structured and easy-to-maintain solutions.",
+      "p3": "I don't just write code; I design systems that are easy to maintain and ready to grow."
+    },
+    "what": {
+      "title": "What I do?",
+      "services": "Backend & Frontend Services:",
+      "service1": "Creation and maintenance of scalable RESTful APIs with Python",
+      "service2": "Automation of corporate processes with efficiency gains",
+      "service3": "Modeling, optimization and integration of databases (SQL)",
+      "service4": "Integration of internal systems applying agile methodologies",
+      "service5": "Development of modern interfaces with React",
+      "service6": "Deploy and containerization with Docker",
+      "highlights": "Professional Highlights:",
+      "highlightText": "At the <strong>Brasília Military Hospital</strong>, I developed applications that <strong>automated processes and resulted in a 43% gain in operational efficiency</strong>, applying agile methodologies like Scrum, Kanban and XP."
+    },
+    "download": {
+      "button": "Download CV",
+      "text": "Download my complete resume in PDF"
+    }
+  },
+  "skills": {
+    "title": "Technologies & Tools",
+    "subtitle": "Technology stack I use to create modern and scalable solutions"
+  },
+  "projects": {
+    "title": "Projects",
+    "project1": {
+      "title": "Project 1",
+      "description": "Project description and technologies used."
+    },
+    "project2": {
+      "title": "Project 2",
+      "description": "Project description and technologies used."
+    },
+    "project3": {
+      "title": "Project 3",
+      "description": "Project description and technologies used."
+    }
+  },
+  "contact": {
+    "title": "Let's Work Together!",
+    "formTitle": "Send me a message",
+    "contactInfo": "Contact Information",
+    "motivationalTitle": "Let's Create Something Amazing Together!",
+    "motivationalText": "I'm always open to exploring new opportunities, challenging projects and collaborations. Get in touch and let's turn your ideas into reality through code."
+  }
+}

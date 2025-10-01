@@ -1,0 +1,67 @@
+{
+  "welcome": "Seja Bem-vindo!",
+  "menu": {
+    "home": "Início",
+    "about": "Sobre",
+    "skills": "Habilidades",
+    "projects": "Projetos",
+    "contact": "Contato"
+  },
+  "hero": {
+    "title": "Arthur Teles",
+    "subtitle": "Desenvolvedor Full Stack",
+    "button": "Ver Projetos →"
+  },
+  "about": {
+    "title": "Sobre Mim",
+    "subtitle": "Saiba mais sobre minha carreira e serviços profissionais",
+    "who": {
+      "title": "Quem sou eu?",
+      "p1": "Sou <strong>Arthur Teles</strong>, formado em Tecnologia da Informação e pós-graduado em Java/PHP, Desenvolvedor Full Stack apaixonado por criar aplicações escaláveis e resolver problemas reais com tecnologia.",
+      "p2": "Tenho especialização em <strong>Python (Django/FastAPI)</strong>, <strong>React</strong> e arquiteturas modernas para web, transformando desafios complexos em soluções limpas, bem estruturadas e de fácil manutenção.",
+      "p3": "Eu não apenas escrevo código; eu projeto sistemas que são fáceis de manter e prontos para crescer."
+    },
+    "what": {
+      "title": "O que eu faço?",
+      "services": "Serviços de Backend & Frontend:",
+      "service1": "Criação e manutenção de APIs RESTful escaláveis com Python",
+      "service2": "Automação de processos corporativos com ganhos de eficiência",
+      "service3": "Modelagem, otimização e integração de bancos de dados (SQL)",
+      "service4": "Integração de sistemas internos aplicando metodologias ágeis",
+      "service5": "Desenvolvimento de interfaces modernas com React",
+      "service6": "Deploy e containerização com Docker",
+      "highlights": "Destaques Profissionais:",
+      "highlightText": "No <strong>Hospital Militar de Brasília</strong>, desenvolvi aplicações que <strong>automatizaram processos e resultaram em 43% de ganho em eficiência operacional</strong>, aplicando metodologias ágeis como Scrum, Kanban e XP."
+    },
+    "download": {
+      "button": "Download CV",
+      "text": "Baixe meu currículo completo em PDF"
+    }
+  },
+  "skills": {
+    "title": "Tecnologias & Ferramentas",
+    "subtitle": "Stack tecnológico que utilizo para criar soluções modernas e escaláveis"
+  },
+  "projects": {
+    "title": "Projetos",
+    "project1": {
+      "title": "Projeto 1",
+      "description": "Descrição do projeto e tecnologias utilizadas."
+    },
+    "project2": {
+      "title": "Projeto 2",
+      "description": "Descrição do projeto e tecnologias utilizadas."
+    },
+    "project3": {
+      "title": "Projeto 3",
+      "description": "Descrição do projeto e tecnologias utilizadas."
+    }
+  },
+  "contact": {
+    "title": "Vamos Trabalhar Juntos!",
+    "formTitle": "Envie-me uma mensagem",
+    "contactInfo": "Informações de Contato",
+    "motivationalTitle": "Vamos Criar Algo Incrível Juntos!",
+    "motivationalText": "Estou sempre aberto a explorar novas oportunidades, projetos desafiadores e colaborações. Entre em contato e vamos transformar suas ideias em realidade através do código."
+  }
+}
