@@ -1,99 +1,158 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useRef } from "react";
+import { motion, useInView } from "framer-motion";
 import {
   FaPython,
   FaJava,
   FaJs,
   FaReact,
   FaDocker,
-  FaDatabase,
+  FaGitAlt,
   FaGithub,
 } from "react-icons/fa";
-import { SiNextdotjs, SiDjango, SiFastapi, SiPostgresql } from "react-icons/si";
+import {
+  SiNextdotjs,
+  SiDjango,
+  SiFastapi,
+  SiPostgresql,
+  SiTypescript,
+  SiHtml5,
+  SiCss3,
+  SiSqlite,
+  SiMysql,
+} from "react-icons/si";
 import { useLanguage } from "../../contexts/LanguageContext";
 
-export default function Skills() {
-  const [isVisible, setIsVisible] = useState(false);
-  const sectionRef = useRef<HTMLElement>(null);
-  const { language } = useLanguage();
+const fadeUp = {
+  hidden: { opacity: 0, y: 20 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.5, ease: [0.21, 0.47, 0.32, 0.98] as const },
+  },
+};
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.1 }
-    );
+const stagger = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.06 } },
+};
 
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
+type Skill = { name: string; icon: React.ReactNode; color: string };
+type Category = { name: string; skills: Skill[] };
 
-    return () => observer.disconnect();
-  }, []);
-
-  const allSkills = [
-    { name: "Python", icon: <FaPython className="text-yellow-400" /> },
-    { name: "Java", icon: <FaJava className="text-red-500" /> },
-    { name: "JavaScript", icon: <FaJs className="text-yellow-400" /> },
+function getCategories(lang: string): Category[] {
+  return [
     {
-      name: "HTML",
-      icon: <div className="text-orange-500 text-2xl">HTML</div>,
+      name: "Frontend",
+      skills: [
+        { name: "React", icon: <FaReact />, color: "#61dafb" },
+        { name: "Next.js", icon: <SiNextdotjs />, color: "#e2e8f0" },
+        { name: "TypeScript", icon: <SiTypescript />, color: "#3178c6" },
+        { name: "JavaScript", icon: <FaJs />, color: "#f0db4f" },
+        { name: "HTML5", icon: <SiHtml5 />, color: "#e34c26" },
+        { name: "CSS3", icon: <SiCss3 />, color: "#264de4" },
+      ],
     },
-    { name: "CSS", icon: <div className="text-blue-500 text-2xl">CSS</div> },
-    { name: "Django", icon: <SiDjango className="text-green-600" /> },
-    { name: "FastAPI", icon: <SiFastapi className="text-teal-500" /> },
-    { name: "React", icon: <FaReact className="text-cyan-400" /> },
-    { name: "Next.js", icon: <SiNextdotjs className="text-white" /> },
-    { name: "PostgreSQL", icon: <SiPostgresql className="text-blue-400" /> },
-    { name: "SQLite", icon: <FaDatabase className="text-blue-300" /> },
-    { name: "Git", icon: <FaGithub className="text-orange-500" /> },
-    { name: "GitHub", icon: <FaGithub className="text-white" /> },
-    { name: "Docker", icon: <FaDocker className="text-blue-500" /> },
+    {
+      name: "Backend",
+      skills: [
+        { name: "Python", icon: <FaPython />, color: "#ffd43b" },
+        { name: "Django", icon: <SiDjango />, color: "#44b78b" },
+        { name: "FastAPI", icon: <SiFastapi />, color: "#009688" },
+        { name: "Java", icon: <FaJava />, color: "#f89820" },
+      ],
+    },
+    {
+      name: lang === "pt" ? "Banco de Dados" : "Database",
+      skills: [
+        { name: "PostgreSQL", icon: <SiPostgresql />, color: "#336791" },
+        { name: "MySQL", icon: <SiMysql />, color: "#00758f" },
+        { name: "SQLite", icon: <SiSqlite />, color: "#79c6e6" },
+      ],
+    },
+    {
+      name: "DevOps & Tools",
+      skills: [
+        { name: "Docker", icon: <FaDocker />, color: "#2496ed" },
+        { name: "Git", icon: <FaGitAlt />, color: "#f05032" },
+        { name: "GitHub", icon: <FaGithub />, color: "#e2e8f0" },
+      ],
+    },
   ];
+}
+
+export default function Skills() {
+  const ref = useRef<HTMLElement>(null);
+  const inView = useInView(ref, { once: true, margin: "-80px" });
+  const { language } = useLanguage();
+  const categories = getCategories(language);
 
   return (
     <section
-      ref={sectionRef}
+      ref={ref}
       id="skills"
-      className={`py-20 bg-gradient-to-b from-black via-gray-950 to-black text-white transition-all duration-1000 ${
-        isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-      }`}
+      className="py-28 relative bg-[#050508]"
     >
-      <div className="container mx-auto px-6 max-w-6xl">
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-light mb-4 tracking-wide">
-            {language === "pt"
-              ? "Tecnologias & Ferramentas"
-              : "Technologies & Tools"}
-          </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
-            {language === "pt"
-              ? "Stack tecnológico que utilizo para criar soluções modernas e escaláveis"
-              : "Technology stack I use to build modern and scalable solutions"}
-          </p>
-        </div>
+      <div className="container mx-auto px-6 max-w-5xl">
+        <motion.div
+          variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.15 } } }}
+          initial="hidden"
+          animate={inView ? "visible" : "hidden"}
+        >
+          <motion.div variants={fadeUp} className="mb-3">
+            <span className="text-xs font-mono text-[#a78bfa] uppercase tracking-widest">
+              {language === "pt" ? "// habilidades" : "// skills"}
+            </span>
+          </motion.div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-          {allSkills.map((skill, index) => (
-            <div
-              key={skill.name}
-              className="flex flex-col items-center justify-center gap-3 p-6 border border-gray-800 rounded-md bg-gray-900/30 hover:bg-gray-900/60 hover:border-gray-600 shadow-md hover:shadow-lg transition-all duration-500 group cursor-default transform hover:-translate-y-2"
-              style={{ transitionDelay: `${index * 75}ms` }}
-            >
-              <div className="text-4xl group-hover:scale-125 transition-transform duration-300">
-                {skill.icon}
-              </div>
-              <span className="text-gray-400 text-sm group-hover:text-white transition-colors">
-                {skill.name}
-              </span>
-            </div>
-          ))}
-        </div>
+          <motion.h2
+            variants={fadeUp}
+            className="text-4xl md:text-5xl font-bold mb-16"
+          >
+            {language === "pt" ? "Tecnologias" : "Technologies"}
+          </motion.h2>
+
+          <div className="space-y-10">
+            {categories.map((category) => (
+              <motion.div key={category.name} variants={fadeUp}>
+                <h3 className="text-xs font-mono text-[#475569] uppercase tracking-widest mb-4">
+                  {category.name}
+                </h3>
+                <motion.div
+                  variants={stagger}
+                  initial="hidden"
+                  animate={inView ? "visible" : "hidden"}
+                  className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-3"
+                >
+                  {category.skills.map((skill) => (
+                    <motion.div
+                      key={skill.name}
+                      variants={fadeUp}
+                      whileHover={{ y: -4, scale: 1.04 }}
+                      transition={{ type: "spring", stiffness: 400, damping: 20 }}
+                      className="flex flex-col items-center gap-2.5 p-4 rounded-xl bg-[#0e0e1a] border border-white/[0.06] hover:border-white/[0.12] transition-colors cursor-default group"
+                    >
+                      <div
+                        className="text-2xl transition-all duration-200 group-hover:brightness-125"
+                        style={{ color: skill.color }}
+                      >
+                        {skill.icon}
+                      </div>
+                      <span className="text-[10px] text-[#64748b] group-hover:text-[#94a3b8] transition-colors font-medium text-center leading-tight">
+                        {skill.name}
+                      </span>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
       </div>
     </section>
   );
 }
+
+
+

@@ -31,11 +31,11 @@
       "service5": "Development of modern interfaces with React",
       "service6": "Deploy and containerization with Docker",
       "highlights": "Professional Highlights:",
-      "highlightText": "At the <strong>Brasília Military Hospital</strong>, I developed applications that <strong>automated processes and resulted in a 43% gain in operational efficiency</strong>, applying agile methodologies like Scrum, Kanban and XP."
+      "highlightText": "At the <strong>Brasília Military Hospital</strong>, I developed applications that <strong>automated processes and resulted in a 33% gain in operational efficiency</strong>, applying agile methodologies like Scrum, Kanban and XP."
     },
     "download": {
-      "button": "Download CV",
-      "text": "Download my complete resume in PDF"
+      "button": "Download Curriculum",
+      "text": "Download my complete curriculum in PDF"
     }
   },
   "skills": {
