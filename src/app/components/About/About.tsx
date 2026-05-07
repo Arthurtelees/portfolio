@@ -211,8 +211,8 @@ export default function About() {
 
               {/* CV download */}
               <a
-                href="/curriculo Arthur Teles atz.pdf"
-                download="curriculo Arthur Teles atz.pdf"
+                href="/curriculo Arthur Teles 2026.pdf"
+                download="curriculo Arthur Teles 2026.pdf"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/[0.1] text-sm font-medium text-[#94a3b8] hover:text-white hover:border-white/[0.2] transition-all duration-200"
               >
                 {language === "pt" ? "Download CV" : "Download Resume"}
