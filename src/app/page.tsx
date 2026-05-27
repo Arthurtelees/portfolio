@@ -9,7 +9,19 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <Header />
-      <Hero />
+      {/* Hero + seamless fade bridge — outside overflow:hidden */}
+      <div className="relative">
+        <Hero />
+        <div
+          className="absolute bottom-0 left-0 right-0 pointer-events-none"
+          style={{
+            height: "280px",
+            zIndex: 20,
+            background:
+              "linear-gradient(to bottom, transparent 0%, #050508 100%)",
+          }}
+        />
+      </div>
       <About />
       <Skills />
 

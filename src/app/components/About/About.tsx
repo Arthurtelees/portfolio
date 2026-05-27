@@ -1,8 +1,8 @@
 "use client";
 
-import { useRef } from "react";
-import Image from "next/image";
-import { motion, useInView } from "framer-motion";
+import { useRef, useState } from "react";
+import { motion, useInView, AnimatePresence } from "framer-motion";
+import Stack from "./Stack";
 import {
   TbRobot,
   TbCode,
@@ -32,6 +32,82 @@ type Service = {
   icon: React.ReactNode;
   text: string;
 };
+
+function CVButton({ language }: { language: string }) {
+  const [hovered, setHovered] = useState(false);
+
+  return (
+    <motion.a
+      href="/curriculo Arthur Teles 2026.pdf"
+      download="curriculo Arthur Teles 2026.pdf"
+      onMouseEnter={() => setHovered(true)}
+      onMouseLeave={() => setHovered(false)}
+      whileTap={{ scale: 0.96 }}
+      className="relative inline-flex items-center gap-3 px-7 py-3.5 rounded-full overflow-hidden text-sm font-semibold cursor-pointer select-none"
+      style={{
+        border: "1px solid rgba(167,139,250,0.35)",
+        color: hovered ? "#050508" : "#e2e8f0",
+        transition: "color 0.35s ease",
+      }}
+    >
+      {/* Liquid fill background */}
+      <motion.span
+        aria-hidden
+        className="absolute inset-0 rounded-full"
+        initial={{ scaleX: 0, originX: 0 }}
+        animate={{ scaleX: hovered ? 1 : 0 }}
+        transition={{ duration: 0.38, ease: [0.32, 0, 0.18, 1] }}
+        style={{ background: "linear-gradient(90deg, #a78bfa, #818cf8)" }}
+      />
+
+      {/* Shimmer sweep on enter */}
+      <AnimatePresence>
+        {hovered && (
+          <motion.span
+            key="shimmer"
+            aria-hidden
+            className="absolute inset-0 rounded-full pointer-events-none"
+            initial={{ x: "-100%" }}
+            animate={{ x: "160%" }}
+            exit={{ x: "160%" }}
+            transition={{ duration: 0.55, ease: "easeOut" }}
+            style={{
+              background:
+                "linear-gradient(105deg, transparent 35%, rgba(255,255,255,0.22) 50%, transparent 65%)",
+              zIndex: 1,
+            }}
+          />
+        )}
+      </AnimatePresence>
+
+      {/* Outer glow */}
+      <motion.span
+        aria-hidden
+        className="absolute -inset-[2px] rounded-full pointer-events-none"
+        animate={{
+          boxShadow: hovered
+            ? "0 0 22px 4px rgba(167,139,250,0.45)"
+            : "0 0 0px 0px rgba(167,139,250,0)",
+        }}
+        transition={{ duration: 0.3 }}
+      />
+
+      {/* Label */}
+      <span className="relative z-10">
+        {language === "pt" ? "Download Currículo" : "Download Resume"}
+      </span>
+
+      {/* Arrow with spring bounce */}
+      <motion.span
+        className="relative z-10"
+        animate={hovered ? { y: [0, 3, 0] } : { y: 0 }}
+        transition={hovered ? { duration: 0.5, ease: "easeInOut", repeat: Infinity } : {}}
+      >
+        <TbArrowDown size={15} />
+      </motion.span>
+    </motion.a>
+  );
+}
 
 export default function About() {
   const ref = useRef<HTMLElement>(null);
@@ -104,7 +180,7 @@ export default function About() {
   ];
 
   return (
-    <section ref={ref} id="sobre" className="py-28 relative">
+    <section ref={ref} id="sobre" className="pt-0 pb-28 relative">
       <div className="container mx-auto px-6 max-w-5xl">
         <motion.div
           variants={stagger}
@@ -210,14 +286,7 @@ export default function About() {
               </div>
 
               {/* CV download */}
-              <a
-                href="/curriculo Arthur Teles 2026.pdf"
-                download="curriculo Arthur Teles 2026.pdf"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/[0.1] text-sm font-medium text-[#94a3b8] hover:text-white hover:border-white/[0.2] transition-all duration-200"
-              >
-                {language === "pt" ? "Download CV" : "Download Resume"}
-                <TbArrowDown size={14} className="text-[#a78bfa]" />
-              </a>
+              <CVButton language={language} />
             </motion.div>
 
             {/* Right column: stats + photos */}
@@ -240,80 +309,22 @@ export default function About() {
                 ))}
               </div>
 
-              {/* Photo gallery — overlapping fan */}
+              {/* Photo stack */}
               <motion.div variants={fadeUp}>
-                {/* Container with fixed height to hold the overlap */}
-                <div className="relative flex justify-center" style={{ height: "220px" }}>
-                  {/* Left photo */}
-                  <motion.div
-                    initial={{ opacity: 0, rotate: -25, x: -20 }}
-                    animate={inView ? { opacity: 1, rotate: -8, x: 0 } : {}}
-                    transition={{ duration: 0.9, delay: 0.3, ease: [0.21, 0.47, 0.32, 0.98] }}
-                    whileHover={{ rotate: -2, scale: 1.12, y: -18, zIndex: 30 }}
-                    className="absolute left-0 bottom-0 cursor-pointer"
-                    style={{ zIndex: 10, transformOrigin: "bottom center" }}
-                  >
-                    <div className="p-[2px] rounded-2xl bg-gradient-to-br from-violet-400/50 via-purple-600/20 to-slate-800/60 shadow-xl shadow-black/60 transition-all duration-300 hover:shadow-[0_0_40px_rgba(167,139,250,0.45)]">
-                      <div className="relative rounded-[calc(1rem-2px)] overflow-hidden w-[140px] h-[180px]">
-                        <Image
-                          src="/images/photo-2.jpeg"
-                          alt="Arthur Teles"
-                          fill
-                          className="object-cover transition-transform duration-500"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent transition-opacity duration-300 hover:opacity-0" />
-                      </div>
-                    </div>
-                  </motion.div>
-
-                  {/* Center photo — on top, floats */}
-                  <motion.div
-                    initial={{ opacity: 0, y: 40, scale: 0.85 }}
-                    animate={inView ? { opacity: 1, y: 0, scale: 1 } : {}}
-                    transition={{ duration: 0.9, delay: 0.1, ease: [0.21, 0.47, 0.32, 0.98] }}
-                    whileHover={{ scale: 1.14, y: -22, zIndex: 30 }}
-                    className="absolute bottom-0 cursor-pointer"
-                    style={{ zIndex: 20, transformOrigin: "bottom center" }}
-                  >
-                    <motion.div
-                      animate={{ y: [0, -6, 0] }}
-                      transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                    >
-                      <div className="p-[2px] rounded-2xl bg-gradient-to-br from-violet-400/90 via-indigo-500/60 to-purple-700/40 shadow-2xl shadow-violet-500/30 transition-all duration-300 hover:shadow-[0_0_55px_rgba(167,139,250,0.6)]">
-                        <div className="relative rounded-[calc(1rem-2px)] overflow-hidden w-[150px] h-[195px]">
-                          <Image
-                            src="/images/photo-1.jpeg"
-                            alt="Arthur Teles"
-                            fill
-                            className="object-cover transition-transform duration-500"
-                          />
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent transition-opacity duration-300 hover:opacity-0" />
-                        </div>
-                      </div>
-                    </motion.div>
-                  </motion.div>
-
-                  {/* Right photo */}
-                  <motion.div
-                    initial={{ opacity: 0, rotate: 25, x: 20 }}
-                    animate={inView ? { opacity: 1, rotate: 8, x: 0 } : {}}
-                    transition={{ duration: 0.9, delay: 0.3, ease: [0.21, 0.47, 0.32, 0.98] }}
-                    whileHover={{ rotate: 2, scale: 1.12, y: -18, zIndex: 30 }}
-                    className="absolute right-0 bottom-0 cursor-pointer"
-                    style={{ zIndex: 10, transformOrigin: "bottom center" }}
-                  >
-                    <div className="p-[2px] rounded-2xl bg-gradient-to-br from-violet-400/50 via-purple-600/20 to-slate-800/60 shadow-xl shadow-black/60 transition-all duration-300 hover:shadow-[0_0_40px_rgba(167,139,250,0.45)]">
-                      <div className="relative rounded-[calc(1rem-2px)] overflow-hidden w-[140px] h-[180px]">
-                        <Image
-                          src="/images/photo-3.jpeg"
-                          alt="Arthur Teles"
-                          fill
-                          className="object-cover transition-transform duration-500"
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent transition-opacity duration-300 hover:opacity-0" />
-                      </div>
-                    </div>
-                  </motion.div>
+                <div style={{ width: "100%", height: "260px" }}>
+                  <Stack
+                    randomRotation={false}
+                    sensitivity={150}
+                    sendToBackOnClick={true}
+                    autoplay={true}
+                    autoplayDelay={3000}
+                    pauseOnHover={true}
+                    cards={[
+                      <img key={1} src="/images/photo-1.jpeg" alt="Arthur Teles" style={{ width: "100%", height: "100%", objectFit: "cover" }} />,
+                      <img key={2} src="/images/photo-2.jpeg" alt="Arthur Teles" style={{ width: "100%", height: "100%", objectFit: "cover" }} />,
+                      <img key={3} src="/images/photo-3.jpeg" alt="Arthur Teles" style={{ width: "100%", height: "100%", objectFit: "cover" }} />,
+                    ]}
+                  />
                 </div>
               </motion.div>
             </motion.div>
@@ -324,5 +335,3 @@ export default function About() {
     </section>
   );
 }
-
-

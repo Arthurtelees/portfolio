@@ -5,6 +5,7 @@ import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
 import { useLanguage } from "../../contexts/LanguageContext";
 import { FaGithub, FaLinkedin } from "react-icons/fa";
 import { HiMail } from "react-icons/hi";
+import LightRays from "./LightRays";
 
 const ROLES: Record<string, string[]> = {
   pt: [
@@ -93,6 +94,22 @@ export default function Hero() {
       id="home"
       className="relative min-h-screen flex flex-col justify-center overflow-hidden bg-[#050508]"
     >
+      {/* LightRays WebGL background */}
+      <LightRays
+        raysOrigin="top-center"
+        raysColor="#a78bfa"
+        raysSpeed={0.6}
+        lightSpread={0.5}
+        rayLength={3}
+        followMouse={true}
+        mouseInfluence={0.12}
+        noiseAmount={0}
+        distortion={0}
+        pulsating={false}
+        fadeDistance={1}
+        saturation={0.7}
+      />
+
       {/* Subtle dot grid */}
       <div className="absolute inset-0 dot-grid opacity-40 pointer-events-none" />
 
@@ -117,21 +134,7 @@ export default function Hero() {
             initial="hidden"
             animate="visible"
           >
-            {/* Available badge */}
-            <motion.div
-              variants={{
-                hidden: { opacity: 0, y: 12 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-              }}
-              className="mb-9"
-            >
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-white/[0.07] bg-white/[0.03] text-sm text-[#94a3b8]">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.7)] animate-pulse" />
-                {language === "pt"
-                  ? "Disponível para oportunidades"
-                  : "Available for opportunities"}
-              </div>
-            </motion.div>
+
 
             {/* Giant outlined name */}
             <motion.div

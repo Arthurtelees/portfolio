@@ -1,7 +1,13 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useInView } from "framer-motion";
+import {
+  motion,
+  useInView,
+  useMotionValue,
+  useSpring,
+  useTransform,
+} from "framer-motion";
 import { useLanguage } from "../../contexts/LanguageContext";
 import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import { HiMail } from "react-icons/hi";
@@ -15,12 +21,107 @@ const fadeUp = {
   },
 };
 
+interface ContactLink {
+  name: string;
+  icon: React.ReactNode;
+  href: string;
+  label: string;
+  external: boolean;
+}
+
+function TiltCard({ link }: { link: ContactLink }) {
+  const cardRef = useRef<HTMLAnchorElement>(null);
+
+  const mouseX = useMotionValue(0.5);
+  const mouseY = useMotionValue(0.5);
+
+  const rotateX = useSpring(useTransform(mouseY, [0, 1], [10, -10]), {
+    stiffness: 180,
+    damping: 22,
+  });
+  const rotateY = useSpring(useTransform(mouseX, [0, 1], [-10, 10]), {
+    stiffness: 180,
+    damping: 22,
+  });
+  const glowX = useTransform(mouseX, [0, 1], [0, 100]);
+  const glowY = useTransform(mouseY, [0, 1], [0, 100]);
+
+  function handleMouseMove(e: React.MouseEvent<HTMLAnchorElement>) {
+    const rect = cardRef.current?.getBoundingClientRect();
+    if (!rect) return;
+    mouseX.set((e.clientX - rect.left) / rect.width);
+    mouseY.set((e.clientY - rect.top) / rect.height);
+  }
+
+  function handleMouseLeave() {
+    mouseX.set(0.5);
+    mouseY.set(0.5);
+  }
+
+  return (
+    <motion.a
+      ref={cardRef}
+      variants={fadeUp}
+      href={link.href}
+      target={link.external ? "_blank" : undefined}
+      rel={link.external ? "noopener noreferrer" : undefined}
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{
+        rotateX,
+        rotateY,
+        transformPerspective: 800,
+        transformStyle: "preserve-3d",
+      }}
+      className="relative flex items-center gap-4 p-4 rounded-xl bg-[#0e0e1a] border border-white/[0.06] hover:border-violet-500/30 transition-colors group cursor-pointer overflow-hidden"
+    >
+      {/* Dynamic glare highlight */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        style={{
+          background: useTransform(
+            [glowX, glowY],
+            ([x, y]) =>
+              `radial-gradient(circle at ${x}% ${y}%, rgba(167,139,250,0.13) 0%, transparent 65%)`
+          ),
+        }}
+      />
+
+      {/* Shadow that follows tilt */}
+      <motion.div
+        className="absolute -inset-1 rounded-2xl pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+        style={{
+          background:
+            "radial-gradient(ellipse at center, rgba(167,139,250,0.18) 0%, transparent 70%)",
+          filter: "blur(16px)",
+          zIndex: -1,
+        }}
+      />
+
+      <div
+        className="text-[#64748b] group-hover:text-[#a78bfa] transition-colors shrink-0"
+        style={{ transform: "translateZ(20px)" }}
+      >
+        {link.icon}
+      </div>
+      <div style={{ transform: "translateZ(20px)" }}>
+        <div className="text-[10px] font-mono text-[#475569] mb-0.5">
+          {link.name}
+        </div>
+        <div className="text-sm font-medium text-[#94a3b8] group-hover:text-[#e2e8f0] transition-colors">
+          {link.label}
+        </div>
+      </div>
+    </motion.a>
+  );
+}
+
 export default function Contact() {
   const ref = useRef<HTMLElement>(null);
   const inView = useInView(ref, { once: true, margin: "-80px" });
   const { language } = useLanguage();
 
-  const links = [
+  const links: ContactLink[] = [
     {
       name: "Email",
       icon: <HiMail size={20} />,
@@ -104,33 +205,14 @@ export default function Contact() {
               : "Open to opportunities, freelance work, and collaborations."}
           </motion.p>
 
-          {/* Contact links */}
+          {/* Contact cards with 3D hover */}
           <motion.div
             variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.08 } } }}
             className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-14 text-left"
+            style={{ perspective: "1000px" }}
           >
             {links.map((link) => (
-              <motion.a
-                key={link.name}
-                variants={fadeUp}
-                href={link.href}
-                target={link.external ? "_blank" : undefined}
-                rel={link.external ? "noopener noreferrer" : undefined}
-                whileHover={{ y: -2, scale: 1.01 }}
-                className="flex items-center gap-4 p-4 rounded-xl bg-[#0e0e1a] border border-white/[0.06] hover:border-white/[0.12] transition-colors group"
-              >
-                <div className="text-[#64748b] group-hover:text-[#a78bfa] transition-colors shrink-0">
-                  {link.icon}
-                </div>
-                <div>
-                  <div className="text-[10px] font-mono text-[#475569] mb-0.5">
-                    {link.name}
-                  </div>
-                  <div className="text-sm font-medium text-[#94a3b8] group-hover:text-[#e2e8f0] transition-colors">
-                    {link.label}
-                  </div>
-                </div>
-              </motion.a>
+              <TiltCard key={link.name} link={link} />
             ))}
           </motion.div>
 
@@ -146,5 +228,3 @@ export default function Contact() {
     </section>
   );
 }
-
-
