@@ -125,7 +125,7 @@ export default function About() {
     },
     {
       value: language === "pt" ? "PT/EN" : "PT/EN",
-      label: language === "pt" ? "Fluente • Nativo" : "Fluent • Native",
+      label: language === "pt" ? "Nativo • B2" : "Native • B2",
     },
     {
       value: "B2",
