@@ -38,8 +38,8 @@ function CVButton({ language }: { language: string }) {
 
   return (
     <motion.a
-      href="/curriculo Arthur Teles 2026.pdf"
-      download="curriculo Arthur Teles 2026.pdf"
+      href="/arthur_teles_26.pdf"
+      download="Arthur_Teles_CV.pdf"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
       whileTap={{ scale: 0.96 }}
