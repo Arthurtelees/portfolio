@@ -21,6 +21,7 @@ import {
   SiCss3,
   SiSqlite,
   SiMysql,
+  SiSpringboot,
 } from "react-icons/si";
 import { useLanguage } from "../../contexts/LanguageContext";
 
@@ -61,6 +62,7 @@ function getCategories(lang: string): Category[] {
         { name: "Django", icon: <SiDjango />, color: "#44b78b" },
         { name: "FastAPI", icon: <SiFastapi />, color: "#009688" },
         { name: "Java", icon: <FaJava />, color: "#f89820" },
+        { name: "Spring Boot", icon: <SiSpringboot />, color: "#6db33f" },
       ],
     },
     {
