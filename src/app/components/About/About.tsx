@@ -124,13 +124,12 @@ export default function About() {
       label: language === "pt" ? "Projetos Entregues" : "Projects Delivered",
     },
     {
-      value: "33%",
-      label:
-        language === "pt" ? "Ganho em Eficiência" : "Efficiency Gain",
+      value: language === "pt" ? "PT/EN" : "PT/EN",
+      label: language === "pt" ? "Fluente • Nativo" : "Fluent • Native",
     },
     {
-      value: "2024",
-      label: language === "pt" ? "Pós-Graduação" : "Post-Graduation",
+      value: "B2",
+      label: language === "pt" ? "Inglês Técnico" : "Technical English",
     },
   ];
 
@@ -211,10 +210,23 @@ export default function About() {
                       <span className="text-[#e2e8f0] font-medium">
                         Arthur Teles
                       </span>
-                      , formado em Tecnologia da Informação e pós-graduado em
-                      Java/PHP. Desenvolvedor Full Stack focado em automação,
-                      integrações e construção de soluções que resolvem
-                      problemas reais no dia a dia das empresas.
+                      , Desenvolvedor Full Stack com experiência em ambientes corporativos. Trabalho com{" "}
+                      <span className="text-[#e2e8f0] font-medium">
+                        Java (Spring Boot)
+                      </span>
+                      ,{" "}
+                      <span className="text-[#e2e8f0] font-medium">
+                        Python
+                      </span>
+                      ,{" "}
+                      <span className="text-[#e2e8f0] font-medium">
+                        React
+                      </span>
+                      {" "}e{" "}
+                      <span className="text-[#e2e8f0] font-medium">
+                        TypeScript
+                      </span>
+                      , com foco em código limpo, manutenibilidade e alinhamento às necessidades do negócio.
                     </>
                   ) : (
                     <>
@@ -222,10 +234,23 @@ export default function About() {
                       <span className="text-[#e2e8f0] font-medium">
                         Arthur Teles
                       </span>
-                      , graduated in Information Technology and post-graduated
-                      in Java/PHP. Full Stack Developer focused on automation,
-                      integrations and building solutions that solve real
-                      problems in companies&apos; day-to-day operations.
+                      , Full Stack Developer with experience in corporate environments. I work with{" "}
+                      <span className="text-[#e2e8f0] font-medium">
+                        Java (Spring Boot)
+                      </span>
+                      ,{" "}
+                      <span className="text-[#e2e8f0] font-medium">
+                        Python
+                      </span>
+                      ,{" "}
+                      <span className="text-[#e2e8f0] font-medium">
+                        React
+                      </span>
+                      {" "}and{" "}
+                      <span className="text-[#e2e8f0] font-medium">
+                        TypeScript
+                      </span>
+                      , focused on clean code, maintainability and alignment with business needs.
                     </>
                   )}
                 </p>
@@ -236,12 +261,11 @@ export default function About() {
                       <span className="text-[#e2e8f0] font-medium">
                         Alldax
                       </span>
-                      , atuo com desenvolvimento de sistemas, bots e automações voltadas
-                      para rotinas contábeis e financeiras, criando soluções
-                      que reduzem esforço manual, aumentam a eficiência e
-                      trazem mais confiabilidade aos processos. Também trabalho
-                      com integrações entre sistemas, análise de dados e
-                      melhorias contínuas em fluxos já existentes.
+                      , desenvolvo soluções Full Stack utilizando Java, Python e React/TypeScript, criando{" "}
+                      <span className="text-[#e2e8f0] font-medium">
+                        automações e integrações
+                      </span>
+                      {" "}entre sistemas internos. Trabalho em times ágeis (Scrum, Kanban, XP), buscando melhorar a confiabilidade dos fluxos e elevar a eficiência operacional em torno de 10–15%.
                     </>
                   ) : (
                     <>
@@ -249,12 +273,11 @@ export default function About() {
                       <span className="text-[#e2e8f0] font-medium">
                         Alldax
                       </span>
-                      , I develop systems, bots and automations for accounting and
-                      financial routines, creating solutions that reduce manual
-                      effort, increase efficiency and bring more reliability to
-                      processes. I also work on systems integrations, data
-                      analysis and continuous improvements to existing
-                      workflows.
+                      , I develop Full Stack solutions using Java, Python and React/TypeScript, creating{" "}
+                      <span className="text-[#e2e8f0] font-medium">
+                        automations and integrations
+                      </span>
+                      {" "}between internal systems. I work in agile teams (Scrum, Kanban, XP), seeking to improve workflow reliability and boost operational efficiency by 10–15%.
                     </>
                   )}
                 </p>
