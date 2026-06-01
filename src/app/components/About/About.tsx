@@ -346,7 +346,7 @@ export default function About() {
                       <img key={1} src="/images/photo-1.jpeg" alt="Arthur Teles" style={{ width: "100%", height: "100%", objectFit: "cover" }} />,
                       <img key={2} src="/images/photo-2.jpeg" alt="Arthur Teles" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />,
                       <img key={3} src="/images/photo-3.jpeg" alt="Arthur Teles" style={{ width: "100%", height: "100%", objectFit: "cover" }} />,
-                      <img key={4} src="/images/photo-4.jpeg" alt="Arthur Teles" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }} />,
+                      <img key={4} src="/images/photo-4.jpeg" alt="Arthur Teles" style={{ width: "100%", height: "100%", objectFit: "cover" }} />,
                       <img key={5} src="/images/photo-5.jpeg" alt="Arthur Teles" style={{ width: "100%", height: "100%", objectFit: "cover" }} />,
                     ]}
                   />
