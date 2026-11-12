@@ -22,6 +22,12 @@ import {
   SiSqlite,
   SiMysql,
   SiSpringboot,
+  SiTailwindcss,
+  SiVite,
+  SiSupabase,
+  SiSelenium,
+  SiOpencv,
+  SiStreamlit,
 } from "react-icons/si";
 import { useLanguage } from "../../contexts/LanguageContext";
 
@@ -51,6 +57,8 @@ function getCategories(lang: string): Category[] {
         { name: "Next.js", icon: <SiNextdotjs />, color: "#e2e8f0" },
         { name: "TypeScript", icon: <SiTypescript />, color: "#3178c6" },
         { name: "JavaScript", icon: <FaJs />, color: "#f0db4f" },
+        { name: "Tailwind", icon: <SiTailwindcss />, color: "#38bdf8" },
+        { name: "Vite", icon: <SiVite />, color: "#646cff" },
         { name: "HTML5", icon: <SiHtml5 />, color: "#e34c26" },
         { name: "CSS3", icon: <SiCss3 />, color: "#264de4" },
       ],
@@ -58,11 +66,11 @@ function getCategories(lang: string): Category[] {
     {
       name: "Backend",
       skills: [
-        { name: "Python", icon: <FaPython />, color: "#ffd43b" },
-        { name: "Django", icon: <SiDjango />, color: "#44b78b" },
-        { name: "FastAPI", icon: <SiFastapi />, color: "#009688" },
         { name: "Java", icon: <FaJava />, color: "#f89820" },
         { name: "Spring Boot", icon: <SiSpringboot />, color: "#6db33f" },
+        { name: "Python", icon: <FaPython />, color: "#ffd43b" },
+        { name: "FastAPI", icon: <SiFastapi />, color: "#009688" },
+        { name: "Django", icon: <SiDjango />, color: "#44b78b" },
       ],
     },
     {
@@ -74,9 +82,18 @@ function getCategories(lang: string): Category[] {
       ],
     },
     {
+      name: lang === "pt" ? "Automação & RPA" : "Automation & RPA",
+      skills: [
+        { name: "SeleniumBase", icon: <SiSelenium />, color: "#43b02a" },
+        { name: "OpenCV", icon: <SiOpencv />, color: "#5c3ee8" },
+        { name: "Streamlit", icon: <SiStreamlit />, color: "#ff4b4b" },
+      ],
+    },
+    {
       name: "DevOps & Tools",
       skills: [
         { name: "Docker", icon: <FaDocker />, color: "#2496ed" },
+        { name: "Supabase", icon: <SiSupabase />, color: "#3ecf8e" },
         { name: "Git", icon: <FaGitAlt />, color: "#f05032" },
         { name: "GitHub", icon: <FaGithub />, color: "#e2e8f0" },
       ],

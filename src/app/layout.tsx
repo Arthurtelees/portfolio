@@ -17,7 +17,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Arthur Teles — Full Stack Developer",
+  title: "Arthur Teles | Full Stack Developer",
   description:
     "Full Stack Developer specializing in Python, React, and modern web architectures.",
 };
@@ -28,7 +28,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR" className="scroll-smooth">
+    <html lang="pt-BR" className="scroll-smooth relative">
       <body
         className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} bg-[#050508] text-[#e2e8f0] antialiased`}
       >

@@ -221,7 +221,7 @@ export default function Contact() {
             variants={fadeUp}
             className="pt-8 border-t border-white/[0.06] text-xs text-[#475569] font-mono"
           >
-            Arthur Teles &copy; {new Date().getFullYear()} — Full Stack Developer
+            Arthur Teles &copy; {new Date().getFullYear()} | Full Stack Developer
           </motion.div>
         </motion.div>
       </div>

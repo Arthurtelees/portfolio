@@ -23,8 +23,8 @@ const ROLES: Record<string, string[]> = {
 };
 
 const bio = {
-  pt: "Desenvolvedor Full Stack focado em automação, integrações e construção de soluções que resolvem problemas reais no dia a dia das empresas. Atualmente na Alldax, criando bots e sistemas para rotinas contábeis.",
-  en: "Full Stack Developer focused on automation, integrations and building solutions that solve real problems. Currently at Alldax, building bots and systems for accounting routines.",
+  pt: "Desenvolvedor Full Stack que concebeu e lidera do zero uma plataforma SaaS multi-tenant e automações RPA que economizaram milhares de horas. Na Alldax, construindo produtos em produção com Java, Python e React.",
+  en: "Full Stack Developer who conceived and leads a multi-tenant SaaS platform from scratch, plus RPA automations that saved thousands of hours. At Alldax, shipping production products with Java, Python and React.",
 };
 
 function WordReveal({ text }: { text: string }) {
@@ -125,7 +125,7 @@ export default function Hero() {
       <div className="relative z-10 container mx-auto px-6 max-w-6xl pt-24 pb-28">
         <div className="grid grid-cols-1 lg:grid-cols-[1fr_420px] gap-14 items-center">
 
-          {/* ── LEFT: Text column ── */}
+          {/* LEFT: Text column */}
           <motion.div
             variants={{
               hidden: {},
@@ -172,7 +172,7 @@ export default function Hero() {
               <span className="animate-blink ml-0.5 text-[#a78bfa]">_</span>
             </motion.div>
 
-            {/* Bio — word by word */}
+            {/* Bio, word by word */}
             <motion.p
               variants={{
                 hidden: {},
@@ -252,7 +252,7 @@ export default function Hero() {
             </motion.div>
           </motion.div>
 
-          {/* ── RIGHT: Code window ── */}
+          {/* RIGHT: Code window */}
           <CodeWindow />
         </div>
       </div>
@@ -307,7 +307,7 @@ function CodeWindow() {
       transition={{ duration: 0.95, delay: 0.35, ease: [0.21, 0.47, 0.32, 0.98] as const }}
       className="hidden lg:block"
     >
-      {/* Float layer — framer-motion owns the y transform */}
+      {/* Float layer: framer-motion owns the y transform */}
       <motion.div
         animate={{ y: [0, -10, 0] }}
         transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}

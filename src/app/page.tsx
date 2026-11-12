@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <main className="min-h-screen">
       <Header />
-      {/* Hero + seamless fade bridge — outside overflow:hidden */}
+      {/* Hero + seamless fade bridge (outside overflow:hidden) */}
       <div className="relative">
         <Hero />
         <div
@@ -24,32 +24,7 @@ export default function Home() {
       </div>
       <About />
       <Skills />
-
-      {/* Wave: dark (#050508) → white */}
-      <div className="bg-[#050508]">
-        <svg
-          viewBox="0 0 1440 90"
-          preserveAspectRatio="none"
-          style={{ display: "block", width: "100%", height: "90px" }}
-          aria-hidden="true"
-        >
-          <path d="M0,90 C360,18 1080,18 1440,90 L1440,90 L0,90 Z" fill="white" />
-        </svg>
-      </div>
-
       <Projects />
-
-      <div className="bg-white">
-        <svg
-          viewBox="0 0 1440 90"
-          preserveAspectRatio="none"
-          style={{ display: "block", width: "100%", height: "90px" }}
-          aria-hidden="true"
-        >
-          <path d="M0,90 C360,18 1080,18 1440,90 L1440,90 L0,90 Z" fill="#050508" />
-        </svg>
-      </div>
-
       <Contact />
     </main>
   );

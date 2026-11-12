@@ -6,10 +6,10 @@ import Stack from "./Stack";
 import {
   TbRobot,
   TbCode,
-  TbDatabase,
-  TbDeviceLaptop,
+  TbShieldLock,
+  TbSparkles,
+  TbTestPipe,
   TbArrowsExchange,
-  TbTrendingUp,
   TbArrowDown,
 } from "react-icons/tb";
 import { useLanguage } from "../../contexts/LanguageContext";
@@ -116,65 +116,65 @@ export default function About() {
 
   const stats = [
     {
-      value: "2+",
-      label: language === "pt" ? "Anos de Experiência" : "Years of Experience",
+      value: "~3.560h",
+      label: language === "pt" ? "Economizadas com RPA" : "Saved via RPA",
     },
     {
-      value: "10+",
-      label: language === "pt" ? "Projetos Entregues" : "Projects Delivered",
+      value: "~R$124k",
+      label: language === "pt" ? "Economia gerada" : "Cost saved",
     },
     {
-      value: language === "pt" ? "PT/EN" : "PT/EN",
-      label: language === "pt" ? "Nativo • B2" : "Native • B2",
+      value: "110k+",
+      label: language === "pt" ? "Linhas de código (Gestall)" : "Lines of code (Gestall)",
     },
     {
-      value: "B2",
-      label: language === "pt" ? "Inglês Técnico" : "Technical English",
+      value: "150+",
+      label: language === "pt" ? "Empresas atendidas" : "Companies served",
     },
   ];
 
   const services: Service[] = [
     {
-      icon: <TbRobot size={16} />,
-      text:
-        language === "pt"
-          ? "Automação de processos (bots RPA e integrações)"
-          : "Process automation (RPA bots and integrations)",
-    },
-    {
       icon: <TbCode size={16} />,
       text:
         language === "pt"
-          ? "Desenvolvimento de APIs e scripts com Python"
-          : "API development and scripting with Python",
+          ? "Arquitetura e desenvolvimento de SaaS multi-tenant (full-stack)"
+          : "Multi-tenant SaaS architecture & development (full-stack)",
     },
     {
-      icon: <TbDatabase size={16} />,
+      icon: <TbRobot size={16} />,
       text:
         language === "pt"
-          ? "Manipulação e otimização de bancos de dados"
-          : "Database manipulation and optimization",
+          ? "Automação de processos (bots RPA) e integrações entre sistemas"
+          : "Process automation (RPA bots) and systems integration",
     },
     {
-      icon: <TbDeviceLaptop size={16} />,
+      icon: <TbShieldLock size={16} />,
       text:
         language === "pt"
-          ? "Criação de interfaces com Streamlit e aplicações web"
-          : "Building interfaces with Streamlit and web apps",
+          ? "Segurança e isolamento de dados (Row Level Security, criptografia)"
+          : "Data security & isolation (Row Level Security, encryption)",
+    },
+    {
+      icon: <TbSparkles size={16} />,
+      text:
+        language === "pt"
+          ? "Integração com modelos de IA (Anthropic, OpenAI)"
+          : "AI model integration (Anthropic, OpenAI)",
+    },
+    {
+      icon: <TbTestPipe size={16} />,
+      text:
+        language === "pt"
+          ? "Testes automatizados, CI e código sustentável"
+          : "Automated testing, CI and maintainable code",
     },
     {
       icon: <TbArrowsExchange size={16} />,
       text:
         language === "pt"
-          ? "Integração entre sistemas (ERP, APIs e bancos)"
+          ? "Integração entre sistemas (ERP, APIs e bancos de dados)"
           : "Systems integration (ERP, APIs and databases)",
-    },
-    {
-      icon: <TbTrendingUp size={16} />,
-      text:
-        language === "pt"
-          ? "Otimização de fluxos operacionais e ganho de eficiência"
-          : "Operational workflow optimization and efficiency gains",
     },
   ];
 
@@ -261,11 +261,15 @@ export default function About() {
                       <span className="text-[#e2e8f0] font-medium">
                         Alldax
                       </span>
-                      , desenvolvo soluções Full Stack utilizando Java, Python e React/TypeScript, criando{" "}
+                      , concebi e lidero do zero o{" "}
                       <span className="text-[#e2e8f0] font-medium">
-                        automações e integrações
+                        Gestall
                       </span>
-                      {" "}entre sistemas internos. Trabalho em times ágeis (Scrum, Kanban, XP), buscando melhorar a confiabilidade dos fluxos e elevar a eficiência operacional em torno de 10–15%.
+                      , uma plataforma SaaS multi-tenant de RH e financeiro (back-end, front-end e infraestrutura), e desenvolvi{" "}
+                      <span className="text-[#e2e8f0] font-medium">
+                        automações RPA
+                      </span>
+                      {" "}que economizaram cerca de 3.560 horas e R$124 mil em 6 meses. Trabalho em times ágeis (Scrum, XP), com foco em segurança multi-tenant, testes automatizados e CI.
                     </>
                   ) : (
                     <>
@@ -273,18 +277,22 @@ export default function About() {
                       <span className="text-[#e2e8f0] font-medium">
                         Alldax
                       </span>
-                      , I develop Full Stack solutions using Java, Python and React/TypeScript, creating{" "}
+                      , I conceived and lead from scratch{" "}
                       <span className="text-[#e2e8f0] font-medium">
-                        automations and integrations
+                        Gestall
                       </span>
-                      {" "}between internal systems. I work in agile teams (Scrum, Kanban, XP), seeking to improve workflow reliability and boost operational efficiency by 10–15%.
+                      , a multi-tenant HR &amp; finance SaaS platform (back-end, front-end and infrastructure), and built{" "}
+                      <span className="text-[#e2e8f0] font-medium">
+                        RPA automations
+                      </span>
+                      {" "}that saved around 3,560 hours and R$124k in 6 months. I work in agile teams (Scrum, XP), focused on multi-tenant security, automated testing and CI.
                     </>
                   )}
                 </p>
                 <p className="text-[#a78bfa] font-medium">
                   {language === "pt"
-                    ? "Não apenas escrevo código — busco entender o problema e entregar soluções inteligentes e sustentáveis."
-                    : "I don't just write code — I seek to understand the problem and deliver intelligent, sustainable solutions."}
+                    ? "Não apenas escrevo código. Busco entender o problema e entregar soluções inteligentes e sustentáveis."
+                    : "I don't just write code. I seek to understand the problem and deliver intelligent, sustainable solutions."}
                 </p>
               </div>
 
