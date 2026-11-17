@@ -12,6 +12,7 @@ export default function Header() {
   const menuItems = [
     { name: language === "pt" ? "Início" : "Home", id: "home" },
     { name: language === "pt" ? "Sobre" : "About", id: "sobre" },
+    { name: language === "pt" ? "Experiência" : "Experience", id: "experiencia" },
     { name: "Skills", id: "skills" },
     { name: language === "pt" ? "Projetos" : "Projects", id: "projetos" },
     { name: language === "pt" ? "Contato" : "Contact", id: "contato" },

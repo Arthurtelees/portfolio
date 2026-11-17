@@ -116,16 +116,16 @@ export default function About() {
 
   const stats = [
     {
+      value: "185",
+      label: language === "pt" ? "Colaboradores ativos (Gestall)" : "Active employees (Gestall)",
+    },
+    {
+      value: "~80%",
+      label: language === "pt" ? "Adoção mensal da plataforma" : "Monthly platform adoption",
+    },
+    {
       value: "~3.560h",
-      label: language === "pt" ? "Economizadas com RPA" : "Saved via RPA",
-    },
-    {
-      value: "~R$124k",
-      label: language === "pt" ? "Economia gerada" : "Cost saved",
-    },
-    {
-      value: "110k+",
-      label: language === "pt" ? "Linhas de código (Gestall)" : "Lines of code (Gestall)",
+      label: language === "pt" ? "Economizadas com RPA / 6 meses" : "Saved via RPA / 6 months",
     },
     {
       value: "150+",
@@ -257,35 +257,43 @@ export default function About() {
                 <p>
                   {language === "pt" ? (
                     <>
-                      Atualmente na{" "}
+                      Na{" "}
                       <span className="text-[#e2e8f0] font-medium">
-                        Alldax
+                        Alldax Contabilidade (Grupo 3 S/A)
                       </span>
-                      , concebi e lidero do zero o{" "}
+                      , concebi e lidero desde o início o{" "}
                       <span className="text-[#e2e8f0] font-medium">
                         Gestall
                       </span>
-                      , uma plataforma SaaS multi-tenant de RH e financeiro (back-end, front-end e infraestrutura), e desenvolvi{" "}
+                      , plataforma SaaS multi-tenant de RH e financeiro que hoje gerencia 185 colaboradores em 8 empresas do grupo. Publiquei em produção o{" "}
+                      <span className="text-[#e2e8f0] font-medium">
+                        Emitte
+                      </span>
+                      , emissor de NFS-e, e desenvolvi{" "}
                       <span className="text-[#e2e8f0] font-medium">
                         automações RPA
                       </span>
-                      {" "}que economizaram cerca de 3.560 horas e R$124 mil em 6 meses. Trabalho em times ágeis (Scrum, XP), com foco em segurança multi-tenant, testes automatizados e CI.
+                      {" "}usadas por mais de 150 empresas, economizando cerca de 3.560 horas a cada 6 meses.
                     </>
                   ) : (
                     <>
-                      Currently at{" "}
+                      At{" "}
                       <span className="text-[#e2e8f0] font-medium">
-                        Alldax
+                        Alldax Contabilidade (Grupo 3 S/A)
                       </span>
                       , I conceived and lead from scratch{" "}
                       <span className="text-[#e2e8f0] font-medium">
                         Gestall
                       </span>
-                      , a multi-tenant HR &amp; finance SaaS platform (back-end, front-end and infrastructure), and built{" "}
+                      , a multi-tenant HR &amp; finance SaaS platform now managing 185 employees across 8 companies in the group. I shipped{" "}
+                      <span className="text-[#e2e8f0] font-medium">
+                        Emitte
+                      </span>
+                      , an NFS-e issuing platform, and built{" "}
                       <span className="text-[#e2e8f0] font-medium">
                         RPA automations
                       </span>
-                      {" "}that saved around 3,560 hours and R$124k in 6 months. I work in agile teams (Scrum, XP), focused on multi-tenant security, automated testing and CI.
+                      {" "}used by 150+ companies, saving around 3,560 hours every 6 months.
                     </>
                   )}
                 </p>

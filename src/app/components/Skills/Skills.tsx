@@ -23,11 +23,17 @@ import {
   SiMysql,
   SiSpringboot,
   SiTailwindcss,
+  SiShadcnui,
+  SiReactquery,
   SiVite,
   SiSupabase,
   SiSelenium,
   SiOpencv,
   SiStreamlit,
+  SiAnthropic,
+  SiOpenai,
+  SiFigma,
+  SiPaypal,
 } from "react-icons/si";
 import { useLanguage } from "../../contexts/LanguageContext";
 
@@ -58,6 +64,8 @@ function getCategories(lang: string): Category[] {
         { name: "TypeScript", icon: <SiTypescript />, color: "#3178c6" },
         { name: "JavaScript", icon: <FaJs />, color: "#f0db4f" },
         { name: "Tailwind", icon: <SiTailwindcss />, color: "#38bdf8" },
+        { name: "shadcn/ui", icon: <SiShadcnui />, color: "#e2e8f0" },
+        { name: "TanStack Query", icon: <SiReactquery />, color: "#ff4154" },
         { name: "Vite", icon: <SiVite />, color: "#646cff" },
         { name: "HTML5", icon: <SiHtml5 />, color: "#e34c26" },
         { name: "CSS3", icon: <SiCss3 />, color: "#264de4" },
@@ -87,6 +95,15 @@ function getCategories(lang: string): Category[] {
         { name: "SeleniumBase", icon: <SiSelenium />, color: "#43b02a" },
         { name: "OpenCV", icon: <SiOpencv />, color: "#5c3ee8" },
         { name: "Streamlit", icon: <SiStreamlit />, color: "#ff4b4b" },
+      ],
+    },
+    {
+      name: lang === "pt" ? "IA & Integrações" : "AI & Integrations",
+      skills: [
+        { name: "Anthropic", icon: <SiAnthropic />, color: "#d4a27f" },
+        { name: "OpenAI", icon: <SiOpenai />, color: "#e2e8f0" },
+        { name: "Figma", icon: <SiFigma />, color: "#f24e1e" },
+        { name: "PayPal", icon: <SiPaypal />, color: "#00457c" },
       ],
     },
     {
